@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architectural Details & Sections 2.0 (2026 EDITION) — 76+ CAD Details with On-Site Photos</title>
+  <meta name="description" content="76+ production-ready architectural and interior construction details. Fully editable DWG, Revit 2026 RVT, vector PDF with real on-site construction photos." />
+
+  <!-- Google Fonts & Tailwind CSS & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              300: '#f6b868',
+              400: '#e59539',
+              500: '#d9822b',
+              600: '#c26e1c',
+              700: '#a35511',
+              badge: '#d9822b'
+            },
+            cad: {
+              bg: '#111317',
+              dark: '#0c0d10',
+              line: 'rgba(255, 255, 255, 0.16)',
+              dim: 'rgba(255, 255, 255, 0.06)'
+            }
+          },
+          fontFamily: {
+            sans: ['"Montserrat"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .blueprint-bg {
+      background-color: #0d0f12;
+      background-image: 
+        radial-gradient(circle at 50% 20%, rgba(217, 130, 43, 0.12) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(13, 15, 18, 0.85), rgba(10, 11, 14, 0.97));
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #0d0f12;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #272c35;
+      border-radius: 999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #d9822b;
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2232907343950412');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2232907343950412&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+
+<body class="bg-[#111214] text-slate-200 font-sans antialiased selection:bg-brand-500 selection:text-white pb-20 md:pb-0"
+      style="background-image: linear-gradient(to bottom, rgba(17, 18, 20, 0.85), rgba(17, 18, 20, 0.95)), url('assets/bg-cad.jpg');
+             background-size: cover;
+             background-position: center top;
+             background-attachment: fixed;
+             background-repeat: no-repeat;">
+
+  <!-- Top Urgency Banner with Live Timer -->
+  <div class="bg-gradient-to-r from-brand-700 via-brand-500 to-amber-600 text-white text-center py-2.5 px-3 text-xs sm:text-sm font-bold tracking-wide shadow-md flex flex-wrap items-center justify-center gap-2">
+    <div class="flex items-center space-x-1.5">
+      <span class="inline-block w-2 h-2 rounded-full bg-white animate-ping"></span>
+      <span>2026 EDITION V 2.0 • LIMITED TIME OFFER -35% OFF</span>
+    </div>
+    <div class="flex items-center space-x-1 font-mono text-[11px] sm:text-xs bg-black/40 px-2.5 py-0.5 rounded-full border border-white/20">
+      <span class="text-slate-300 font-sans text-[10px] uppercase font-bold mr-1">Offer expires in:</span>
+      <span id="timer-hours" class="font-bold text-brand-300">00</span><span>:</span>
+      <span id="timer-minutes" class="font-bold text-brand-300">00</span><span>:</span>
+      <span id="timer-seconds" class="font-bold text-brand-300">00</span>
+    </div>
+    <span class="hidden md:inline bg-black/30 px-2 py-0.5 rounded font-mono text-xs">$19 instead of $29</span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-[#0d0f12]/95 backdrop-blur-md border-b border-white/10 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center space-x-3 group">
+          <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-brand-400 to-brand-600 p-0.5 shadow-lg shadow-brand-500/20 flex items-center justify-center">
+            <div class="w-full h-full bg-[#0d0f12] rounded-[6px] flex items-center justify-center">
+              <span class="font-mono font-black text-brand-400 text-base">2.0</span>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="font-extrabold text-lg text-white tracking-tight uppercase">DETAILS & SECTIONS</span>
+              <span class="px-2 py-0.5 text-[10px] font-black bg-brand-500 text-white rounded uppercase tracking-wider">2026</span>
+            </div>
+            <p class="text-[11px] text-slate-400 font-medium">For Interior & Architectural Working Drawings</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-8 text-xs uppercase tracking-wider font-bold text-slate-300">
+          <a href="#samples" class="hover:text-brand-400 transition-colors">CAD vs Site Photo</a>
+          <a href="#quality-gallery" class="hover:text-brand-400 transition-colors">Drafting Samples</a>
+          <a href="#video-tour" class="hover:text-brand-400 transition-colors">Video Tour</a>
+          <a href="#nodes-catalog" class="hover:text-brand-400 transition-colors">76+ Details List</a>
+          <a href="#formats" class="hover:text-brand-400 transition-colors">DWG / RVT 26 / PDF</a>
+          <a href="#faq" class="hover:text-brand-400 transition-colors">FAQ</a>
+        </nav>
+
+        <!-- Header CTA -->
+        <div class="flex items-center space-x-4">
+          <div class="hidden sm:flex flex-col text-right">
+            <span class="text-xs text-slate-500 line-through font-mono">$29 USD</span>
+            <span class="text-lg font-black text-brand-400 font-mono leading-none">$19 USD</span>
+          </div>
+          <button onclick="openOrderModal()" class="px-5 py-2.5 rounded-lg font-extrabold text-white uppercase text-xs tracking-wider bg-brand-500 hover:bg-brand-400 shadow-lg shadow-brand-500/30 active:scale-95 transition-all">
+            Get Library
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative pt-8 pb-20 lg:pt-14 lg:pb-28 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-6">
+          <div class="px-4 py-1.5 rounded-md bg-brand-500 text-white text-xs sm:text-sm font-black uppercase tracking-wider shadow-lg shadow-brand-500/20">
+            NOW WITH ON-SITE CONSTRUCTION PHOTOS
+          </div>
+          <div class="px-4 py-1.5 rounded-md bg-[#1d222b] border border-brand-500/40 text-brand-300 text-xs sm:text-sm font-black uppercase tracking-wider">
+            100% NEW CONTENT • ZERO OVERLAP WITH V1.0
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <h1 class="text-4xl sm:text-6xl font-black text-white uppercase tracking-tight leading-[1.08]">
+              <span class="text-brand-400">76+</span> DETAILS<br />& SECTIONS
+            </h1>
+            
+            <p class="text-sm sm:text-base font-semibold text-slate-300 uppercase tracking-wide border-l-2 border-brand-500 pl-4 py-0.5 text-left">
+              FOR INTERIOR ARCHITECTURE & PRODUCTION WORKING DRAWINGS
+            </p>
+
+            <div class="space-y-3.5 pt-2 text-left">
+              <div class="flex items-start space-x-3.5">
+                <div class="w-8 h-8 rounded-lg bg-[#181c25] border border-brand-500/30 flex items-center justify-center shrink-0 text-brand-400">
+                  <i data-lucide="layers" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-xs sm:text-sm font-bold text-white tracking-wide uppercase">DWG / RVT 26 / VECTOR PDF — ALL FORMATS INCLUDED</div>
+                  <div class="text-xs text-slate-400">Full compatibility with AutoCAD (2016+), Revit 2026, ArchiCAD (via DWG import), and vector PDFs.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3.5">
+                <div class="w-8 h-8 rounded-lg bg-[#181c25] border border-brand-500/30 flex items-center justify-center shrink-0 text-brand-400">
+                  <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-xs sm:text-sm font-bold text-white tracking-wide uppercase">REFRESH — 100% UNIQUE / NO DUPLICATES WITH V1</div>
+                  <div class="text-xs text-slate-400">Not a single repeated detail. Only modern, complex construction junctions and hidden architectural profiles.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3.5">
+                <div class="w-8 h-8 rounded-lg bg-[#181c25] border border-brand-500/30 flex items-center justify-center shrink-0 text-brand-400">
+                  <i data-lucide="camera" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-xs sm:text-sm font-bold text-white tracking-wide uppercase">CAMERA — REAL ON-SITE INSTALLATION PHOTOS</div>
+                  <div class="text-xs text-slate-400">Every intricate detail is paired with high-res installation photography directly from the job site.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3.5">
+                <div class="w-8 h-8 rounded-lg bg-[#181c25] border border-brand-500/30 flex items-center justify-center shrink-0 text-brand-400">
+                  <i data-lucide="edit-3" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-xs sm:text-sm font-bold text-white tracking-wide uppercase">EDIT — 100% UNLOCKED & CUSTOMIZABLE</div>
+                  <div class="text-xs text-slate-400">Organized layers, editable callouts, leaders, and standard lineweights. Ready to drag and drop into your projects.</div>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3.5">
+                <div class="w-8 h-8 rounded-lg bg-[#181c25] border border-brand-500/30 flex items-center justify-center shrink-0 text-brand-400">
+                  <i data-lucide="key" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <div class="text-xs sm:text-sm font-bold text-white tracking-wide uppercase">LIFETIME ACCESS — NO SUBSCRIPTIONS</div>
+                  <div class="text-xs text-slate-400">Instant digital download link delivered directly to your email. Lifetime updates included.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3 bg-[#171a22] border border-white/10 rounded-xl text-center lg:text-left">
+              <span class="text-xs font-black text-brand-400 uppercase tracking-wider">
+                JOINERY • SHADOW REVEALS • RECESSED LIGHTS • CEILINGS • BATHROOMS & MORE
+              </span>
+            </div>
+
+            <div class="pt-4 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+              <div class="bg-[#14171e] px-5 py-3 rounded-xl border border-brand-500/40 flex items-center space-x-4">
+                <div>
+                  <span class="text-[10px] uppercase tracking-wider text-slate-400 block font-bold">Special Price:</span>
+                  <div class="flex items-baseline space-x-2">
+                    <span class="text-3xl font-black text-white font-mono">$19</span>
+                    <span class="text-sm font-bold text-slate-400">USD</span>
+                    <span class="text-xs text-slate-500 line-through ml-2">$29 USD</span>
+                  </div>
+                </div>
+                <div class="px-2 py-1 bg-brand-500/20 text-brand-400 border border-brand-500/30 rounded text-xs font-mono font-bold">
+                  -35%
+                </div>
+              </div>
+
+              <button onclick="openOrderModal()" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-black text-sm uppercase tracking-wider shadow-2xl shadow-brand-500/40 transform active:scale-95 transition-all flex items-center justify-center space-x-2">
+                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                <span>Get Instant Access</span>
+              </button>
+            </div>
+
+          </div>
+
+          <div class="lg:col-span-5 flex items-center justify-center relative">
+            <div class="absolute -inset-4 bg-gradient-to-tr from-brand-500/25 via-amber-500/15 to-transparent rounded-3xl blur-2xl -z-10 pointer-events-none"></div>
+
+            <div class="relative w-full max-w-[420px] rounded-2xl overflow-hidden shadow-2xl shadow-black/90 border border-white/10 group transition-transform duration-300 hover:scale-[1.01]">
+              <img 
+                src="assets/Creo.jpg" 
+                alt="76+ Details & Sections — 2026 Edition" 
+                class="w-full h-auto object-cover block"
+                loading="eager"
+              >
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Samples Section: CAD vs Photo -->
+    <section id="samples" class="py-20 border-t border-white/10 bg-[#0b0c10]/90 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-black uppercase tracking-wider mb-3">
+            <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+            <span>SAMPLES & EVIDENCE</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
+            CAD Drafting vs Real Construction
+          </h2>
+          <p class="text-slate-400 text-sm mt-3">
+            Toggle between the engineering CAD detail and the real job-site installation. Click on any image to zoom in full resolution.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Sample 1: Detail 22 -->
+          <div class="bg-[#13161d] rounded-xl border border-white/15 overflow-hidden flex flex-col group">
+            <div class="p-4 border-b border-white/10 flex justify-between items-center bg-[#171a24]">
+              <div>
+                <span class="text-xs font-mono font-bold text-brand-400">DETAIL #22</span>
+                <h4 class="text-xs font-bold text-white uppercase">Floating Bathtub Toe-Kick with LED</h4>
+              </div>
+              <div class="flex rounded-lg bg-[#0b0c10] p-1 text-[10px] font-bold">
+                <button onclick="toggleCardView(22, 'cad')" id="btn-22-cad" class="px-2 py-0.5 rounded bg-brand-500 text-white transition-all">CAD</button>
+                <button onclick="toggleCardView(22, 'photo')" id="btn-22-photo" class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all">PHOTO</button>
+              </div>
+            </div>
+
+            <div class="relative h-72 bg-[#090a0d] p-2 flex items-center justify-center overflow-hidden">
+              <div id="view-22-cad" class="w-full h-full flex items-center justify-center bg-white/5 rounded-lg overflow-hidden relative group/img">
+                <img 
+                  src="assets/detail 22.jpg" 
+                  alt="Detail 22 CAD Section" 
+                  class="w-full h-full object-contain cursor-zoom-in transition-transform duration-300 group-hover/img:scale-105"
+                  onclick="openImageZoom(this.src, 'Detail #22 — Floating acrylic solid surface bathtub plinth with LED profile (CAD)')"
+                />
+                <div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-[10px] text-slate-300 pointer-events-none flex items-center space-x-1">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-brand-400"></i>
+                  <span>Zoom In</span>
+                </div>
+              </div>
+
+              <div id="view-22-photo" class="hidden absolute inset-0 bg-black cursor-zoom-in relative group/img" onclick="openImageZoom('assets/Photo 22.jpg', 'Detail #22 — On-site installation of floating bathtub plinth')">
+                <img 
+                  src="assets/Photo 22.jpg" 
+                  alt="Detail 22 construction photo" 
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105" 
+                />
+                <div class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-[11px] text-white flex justify-between items-center">
+                  <span>Actual job-site installation with concealed glow effect</span>
+                  <span class="text-brand-400 flex items-center space-x-1 text-[10px]">
+                    <i data-lucide="zoom-in" class="w-3 h-3"></i>
+                    <span>Zoom</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample 2: Detail 42 -->
+          <div class="bg-[#13161d] rounded-xl border border-white/15 overflow-hidden flex flex-col group">
+            <div class="p-4 border-b border-white/10 flex justify-between items-center bg-[#171a24]">
+              <div>
+                <span class="text-xs font-mono font-bold text-brand-400">DETAIL #42</span>
+                <h4 class="text-xs font-bold text-white uppercase">Fantom Concealed Magnetic Doorstop</h4>
+              </div>
+              <div class="flex rounded-lg bg-[#0b0c10] p-1 text-[10px] font-bold">
+                <button onclick="toggleCardView(42, 'cad')" id="btn-42-cad" class="px-2 py-0.5 rounded bg-brand-500 text-white transition-all">CAD</button>
+                <button onclick="toggleCardView(42, 'photo')" id="btn-42-photo" class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all">PHOTO</button>
+              </div>
+            </div>
+
+            <div class="relative h-72 bg-[#090a0d] p-2 flex items-center justify-center overflow-hidden">
+              <div id="view-42-cad" class="w-full h-full flex items-center justify-center bg-white/5 rounded-lg overflow-hidden relative group/img">
+                <img 
+                  src="assets/detail 42.jpg" 
+                  alt="Detail 42 CAD Section" 
+                  class="w-full h-full object-contain cursor-zoom-in transition-transform duration-300 group-hover/img:scale-105"
+                  onclick="openImageZoom(this.src, 'Detail #42 — Concealed Fantom Magnetic Doorstop installation section (CAD)')"
+                />
+                <div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-[10px] text-slate-300 pointer-events-none flex items-center space-x-1">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-brand-400"></i>
+                  <span>Zoom In</span>
+                </div>
+              </div>
+
+              <div id="view-42-photo" class="hidden absolute inset-0 bg-black cursor-zoom-in relative group/img" onclick="openImageZoom('assets/photo 42.jpg', 'Detail #42 — On-site installation of magnetic concealed doorstop')">
+                <img 
+                  src="assets/photo 42.jpg" 
+                  alt="Detail 42 installation photo" 
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105" 
+                />
+                <div class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-[11px] text-white flex justify-between items-center">
+                  <span>Flush floor finish with completely invisible pin mechanism</span>
+                  <span class="text-brand-400 flex items-center space-x-1 text-[10px]">
+                    <i data-lucide="zoom-in" class="w-3 h-3"></i>
+                    <span>Zoom</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample 3: Detail 52 -->
+          <div class="bg-[#13161d] rounded-xl border border-white/15 overflow-hidden flex flex-col group">
+            <div class="p-4 border-b border-white/10 flex justify-between items-center bg-[#171a24]">
+              <div>
+                <span class="text-xs font-mono font-bold text-brand-400">DETAIL #52</span>
+                <h4 class="text-xs font-bold text-white uppercase">Recessed Millwork TV Niche</h4>
+              </div>
+              <div class="flex rounded-lg bg-[#0b0c10] p-1 text-[10px] font-bold">
+                <button onclick="toggleCardView(52, 'cad')" id="btn-52-cad" class="px-2 py-0.5 rounded bg-brand-500 text-white transition-all">CAD</button>
+                <button onclick="toggleCardView(52, 'photo')" id="btn-52-photo" class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all">PHOTO</button>
+              </div>
+            </div>
+
+            <div class="relative h-72 bg-[#090a0d] p-2 flex items-center justify-center overflow-hidden">
+              <div id="view-52-cad" class="w-full h-full flex items-center justify-center bg-white/5 rounded-lg overflow-hidden relative group/img">
+                <img 
+                  src="assets/detail 52.jpg" 
+                  alt="Detail 52 CAD Section" 
+                  class="w-full h-full object-contain cursor-zoom-in transition-transform duration-300 group-hover/img:scale-105"
+                  onclick="openImageZoom(this.src, 'Detail #52 — Concealed TV mounting bracket within millwork panel (CAD)')"
+                />
+                <div class="absolute bottom-2 right-2 bg-black/70 px-2 py-1 rounded text-[10px] text-slate-300 pointer-events-none flex items-center space-x-1">
+                  <i data-lucide="zoom-in" class="w-3 h-3 text-brand-400"></i>
+                  <span>Zoom In</span>
+                </div>
+              </div>
+
+              <div id="view-52-photo" class="hidden absolute inset-0 bg-black cursor-zoom-in relative group/img" onclick="openImageZoom('assets/Photo 52.jpg', 'Detail #52 — Real job-site TV niche mounting')">
+                <img 
+                  src="assets/Photo 52.jpg" 
+                  alt="Detail 52 TV bracket photo" 
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover/img:scale-105" 
+                />
+                <div class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/90 via-black/50 to-transparent text-[11px] text-white flex justify-between items-center">
+                  <span>Clean recessed cavity with cable management</span>
+                  <span class="text-brand-400 flex items-center space-x-1 text-[10px]">
+                    <i data-lucide="zoom-in" class="w-3 h-3"></i>
+                    <span>Zoom</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Quality Gallery from Screenshots -->
+    <section id="quality-gallery" class="py-20 bg-[#0c0e12] border-t border-white/10 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-black uppercase tracking-wider mb-3">
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+            <span>DRAFTING RIGOR & STANDARDS</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
+            Inspect the Drafting Resolution
+          </h2>
+          <p class="text-slate-400 text-sm mt-3">
+            Click on any sheet preview below to inspect lineweights, dimension strings, hatch patterns, and callouts in full screen.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+          
+          <!-- Screenshot 1 -->
+          <div class="bg-[#13161e] border border-white/10 rounded-xl overflow-hidden group hover:border-brand-500/50 transition-all cursor-zoom-in shadow-lg" onclick="openImageZoomWithFallback('assets/Screenshot_1', 'Architectural Section — Detail Sheet 01')">
+            <div class="p-2.5 border-b border-white/10 bg-[#161a24] flex justify-between items-center text-[11px] font-mono">
+              <span class="text-brand-400 font-bold">Sheet 01</span>
+              <span class="text-slate-400 text-[10px] uppercase">CAD 1:5 Scale</span>
+            </div>
+            <div class="h-44 bg-[#08090c] p-2 flex items-center justify-center overflow-hidden">
+              <img src="assets/Screenshot_1.jpg" onerror="if(!this.dataset.failed){this.dataset.failed=1;this.src='assets/Screenshot_1.png';}" alt="CAD Detail Sheet 1" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" />
+            </div>
+          </div>
+
+          <!-- Screenshot 2 -->
+          <div class="bg-[#13161e] border border-white/10 rounded-xl overflow-hidden group hover:border-brand-500/50 transition-all cursor-zoom-in shadow-lg" onclick="openImageZoomWithFallback('assets/Screenshot_2', 'Architectural Section — Detail Sheet 02')">
+            <div class="p-2.5 border-b border-white/10 bg-[#161a24] flex justify-between items-center text-[11px] font-mono">
+              <span class="text-brand-400 font-bold">Sheet 02</span>
+              <span class="text-slate-400 text-[10px] uppercase">CAD 1:5 Scale</span>
+            </div>
+            <div class="h-44 bg-[#08090c] p-2 flex items-center justify-center overflow-hidden">
+              <img src="assets/Screenshot_2.jpg" onerror="if(!this.dataset.failed){this.dataset.failed=1;this.src='assets/Screenshot_2.png';}" alt="CAD Detail Sheet 2" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" />
+            </div>
+          </div>
+
+          <!-- Screenshot 3 -->
+          <div class="bg-[#13161e] border border-white/10 rounded-xl overflow-hidden group hover:border-brand-500/50 transition-all cursor-zoom-in shadow-lg" onclick="openImageZoomWithFallback('assets/Screenshot_3', 'Architectural Section — Detail Sheet 03')">
+            <div class="p-2.5 border-b border-white/10 bg-[#161a24] flex justify-between items-center text-[11px] font-mono">
+              <span class="text-brand-400 font-bold">Sheet 03</span>
+              <span class="text-slate-400 text-[10px] uppercase">CAD 1:5 Scale</span>
+            </div>
+            <div class="h-44 bg-[#08090c] p-2 flex items-center justify-center overflow-hidden">
+              <img src="assets/Screenshot_3.jpg" onerror="if(!this.dataset.failed){this.dataset.failed=1;this.src='assets/Screenshot_3.png';}" alt="CAD Detail Sheet 3" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" />
+            </div>
+          </div>
+
+          <!-- Screenshot 4 -->
+          <div class="bg-[#13161e] border border-white/10 rounded-xl overflow-hidden group hover:border-brand-500/50 transition-all cursor-zoom-in shadow-lg" onclick="openImageZoomWithFallback('assets/Screenshot_4', 'Architectural Section — Detail Sheet 04')">
+            <div class="p-2.5 border-b border-white/10 bg-[#161a24] flex justify-between items-center text-[11px] font-mono">
+              <span class="text-brand-400 font-bold">Sheet 04</span>
+              <span class="text-slate-400 text-[10px] uppercase">CAD 1:5 Scale</span>
+            </div>
+            <div class="h-44 bg-[#08090c] p-2 flex items-center justify-center overflow-hidden">
+              <img src="assets/Screenshot_4.jpg" onerror="if(!this.dataset.failed){this.dataset.failed=1;this.src='assets/Screenshot_4.png';}" alt="CAD Detail Sheet 4" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" />
+            </div>
+          </div>
+
+          <!-- Screenshot 5 -->
+          <div class="bg-[#13161e] border border-white/10 rounded-xl overflow-hidden group hover:border-brand-500/50 transition-all cursor-zoom-in shadow-lg" onclick="openImageZoomWithFallback('assets/Screenshot_5', 'Architectural Section — Detail Sheet 05')">
+            <div class="p-2.5 border-b border-white/10 bg-[#161a24] flex justify-between items-center text-[11px] font-mono">
+              <span class="text-brand-400 font-bold">Sheet 05</span>
+              <span class="text-slate-400 text-[10px] uppercase">CAD 1:5 Scale</span>
+            </div>
+            <div class="h-44 bg-[#08090c] p-2 flex items-center justify-center overflow-hidden">
+              <img src="assets/Screenshot_5.jpg" onerror="if(!this.dataset.failed){this.dataset.failed=1;this.src='assets/Screenshot_5.png';}" alt="CAD Detail Sheet 5" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" />
+            </div>
+          </div>
+
+          <!-- Screenshot 6 -->
+          <div class="bg-[#13161e] border border-white/10 rounded-xl overflow-hidden group hover:border-brand-500/50 transition-all cursor-zoom-in shadow-lg" onclick="openImageZoomWithFallback('assets/Screenshot_6', 'Architectural Section — Detail Sheet 06')">
+            <div class="p-2.5 border-b border-white/10 bg-[#161a24] flex justify-between items-center text-[11px] font-mono">
+              <span class="text-brand-400 font-bold">Sheet 06</span>
+              <span class="text-slate-400 text-[10px] uppercase">CAD 1:5 Scale</span>
+            </div>
+            <div class="h-44 bg-[#08090c] p-2 flex items-center justify-center overflow-hidden">
+              <img src="assets/Screenshot_6.jpg" onerror="if(!this.dataset.failed){this.dataset.failed=1;this.src='assets/Screenshot_6.png';}" alt="CAD Detail Sheet 6" class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" />
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video-tour" class="py-20 bg-[#0d0f14] border-t border-white/10 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-5 space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-black uppercase tracking-wider">
+              <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
+              <span>DIGITAL ASSET WALKTHROUGH</span>
+            </div>
+
+            <h3 class="text-3xl font-black text-white uppercase tracking-tight">
+              Watch the Files in Action
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Explore how effortlessly these details drop into real working drawings. Every sheet is formatted cleanly with precise scale and no proprietary plugin locks.
+            </p>
+
+            <div class="pt-2">
+              <button onclick="openOrderModal()" class="px-6 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-brand-500/30 flex items-center space-x-2 transition-all">
+                <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+                <span>Get All 76 Details for $19</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <div class="relative rounded-2xl bg-[#141720] border border-white/15 p-2.5 shadow-2xl overflow-hidden">
+              <div class="relative aspect-video rounded-xl bg-black overflow-hidden flex items-center justify-center">
+                <iframe 
+                  class="w-full h-full rounded-lg" 
+                  src="https://www.youtube-nocookie.com/embed/Ftz8nfHYVOs?rel=0&modestbranding=1" 
+                  title="Details 2.0 Library Walkthrough" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="nodes-catalog" class="py-20 bg-[#0a0c10] border-t border-white/10 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-black uppercase tracking-wider mb-3">
+            <i data-lucide="database" class="w-3.5 h-3.5"></i>
+            <span>COMPLETE 2.0 INDEX</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+            Complete Index of All 76 Details
+          </h2>
+          <p class="text-slate-400 text-sm mt-3">
+            Search dynamically by component name, profile type, or material keyword.
+          </p>
+        </div>
+
+        <!-- Controls: Search & Category Buttons -->
+        <div class="bg-[#12151d] p-5 rounded-2xl border border-white/10 mb-6 shadow-xl">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+            
+            <div class="md:col-span-8 relative">
+              <i data-lucide="search" class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+              <input 
+                type="text" 
+                id="nodeSearchInput" 
+                oninput="filterNodes()" 
+                placeholder="Search keywords (e.g. shadow gap, shower drain, curtain pocket, recessed track)..." 
+                class="w-full pl-12 pr-4 py-3 rounded-xl bg-[#090a0d] border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors"
+              />
+            </div>
+
+            <div class="md:col-span-4 flex items-center justify-between md:justify-end space-x-4">
+              <span class="text-xs text-slate-400 font-medium">
+                Found: <strong id="nodesCountBadge" class="text-brand-400 font-mono text-sm">76</strong> of 76 details
+              </span>
+              <button onclick="resetFilters()" class="text-xs text-slate-400 hover:text-white underline">
+                Reset
+              </button>
+            </div>
+
+          </div>
+
+          <div class="flex items-center gap-2 overflow-x-auto custom-scroll pt-4 pb-1 text-xs font-bold uppercase">
+            <button onclick="setCategory('all')" data-cat="all" class="filter-btn px-3.5 py-1.5 rounded-lg bg-brand-500 text-white whitespace-nowrap shadow-md">
+              All (76)
+            </button>
+            <button onclick="setCategory('floor')" data-cat="floor" class="filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap">
+              Shadow Baseboards (1-7, 48)
+            </button>
+            <button onclick="setCategory('ceiling')" data-cat="ceiling" class="filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap">
+              Ceiling Reveals (8-20)
+            </button>
+            <button onclick="setCategory('bathroom')" data-cat="bathroom" class="filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap">
+              Bathrooms & Showers (21-32)
+            </button>
+            <button onclick="setCategory('cornice')" data-cat="cornice" class="filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap">
+              Curtain & Track Profiles (33-39)
+            </button>
+            <button onclick="setCategory('doors')" data-cat="doors" class="filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap">
+              Glazed Partitions & Doors (40-44)
+            </button>
+            <button onclick="setCategory('lighting')" data-cat="lighting" class="filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap">
+              Recessed Track Lighting (45-47, 72)
+            </button>
+            <button onclick="setCategory('furniture')" data-cat="furniture" class="filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap">
+              Joinery & TV Panels (49-57)
+            </button>
+            <button onclick="setCategory('mirrors')" data-cat="mirrors" class="filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap">
+              Flush Mirrors & Niches (58-67)
+            </button>
+            <button onclick="setCategory('curtains')" data-cat="curtains" class="filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap">
+              Drapery Pockets (68-71, 73-74)
+            </button>
+            <button onclick="setCategory('heating')" data-cat="heating" class="filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap">
+              Concealed Heating (75-76)
+            </button>
+          </div>
+        </div>
+
+        <!-- Rendered Node Items Container -->
+        <div id="nodesList" class="space-y-2 max-h-[600px] overflow-y-auto custom-scroll pr-2">
+          <!-- Injected via JavaScript -->
+        </div>
+
+        <div class="mt-8 bg-[#141720] border border-brand-500/30 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0">
+              <i data-lucide="download-cloud" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="text-base font-bold text-white uppercase">Download All 76 Architectural Details</h4>
+              <p class="text-xs text-slate-400">Includes DWG 2016+, Revit 2026 RVT, vector PDF, and high-res on-site construction photos.</p>
+            </div>
+          </div>
+          <button onclick="openOrderModal()" class="px-6 py-3 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-black text-xs uppercase tracking-wider whitespace-nowrap shadow-lg shadow-brand-500/30">
+            Download Library for $19
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Formats Section -->
+    <section id="formats" class="py-20 bg-[#0d0f14] border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <h2 class="text-3xl font-black text-white uppercase tracking-tight">
+            100% Native Software Compatibility
+          </h2>
+          <p class="text-slate-400 text-sm mt-2">
+            Thoroughly tested and optimized for rapid insertion without layer clashes, broken font styles, or scaling defects.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="bg-[#12151d] p-6 rounded-xl border border-white/10 text-center">
+            <div class="w-12 h-12 rounded-lg bg-red-950/60 border border-red-500/40 text-red-400 font-mono font-bold flex items-center justify-center mx-auto mb-4">
+              DWG
+            </div>
+            <h4 class="text-sm font-bold text-white uppercase">AutoCAD 2016–2026</h4>
+            <p class="text-xs text-slate-400 mt-1">Clean layer standards, standard lineweights, reusable blocks, and native architectural hatches.</p>
+          </div>
+
+          <div class="bg-[#12151d] p-6 rounded-xl border border-blue-500/40 text-center">
+            <div class="w-12 h-12 rounded-lg bg-blue-950/60 border border-blue-500/40 text-blue-400 font-mono font-bold flex items-center justify-center mx-auto mb-4">
+              RVT
+            </div>
+            <h4 class="text-sm font-bold text-white uppercase">Autodesk Revit 2026</h4>
+            <p class="text-xs text-slate-400 mt-1">Structured drafting views and legend components. Seamless copy-paste into active project files.</p>
+          </div>
+
+          <div class="bg-[#12151d] p-6 rounded-xl border border-white/10 text-center">
+            <div class="w-12 h-12 rounded-lg bg-amber-950/60 border border-amber-500/40 text-amber-400 font-mono font-bold flex items-center justify-center mx-auto mb-4">
+              PDF
+            </div>
+            <h4 class="text-sm font-bold text-white uppercase">Vector PDF Album</h4>
+            <p class="text-xs text-slate-400 mt-1">Optimized for high-resolution review on iPad, tablet, or smartphone during job-site supervision.</p>
+          </div>
+
+          <div class="bg-[#12151d] p-6 rounded-xl border border-white/10 text-center">
+            <div class="w-12 h-12 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 font-mono font-bold flex items-center justify-center mx-auto mb-4">
+              IMG
+            </div>
+            <h4 class="text-sm font-bold text-white uppercase">Photo Documentation</h4>
+            <p class="text-xs text-slate-400 mt-1">Real-life execution photos showing builders exactly how complex joints assemble on-site.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-[#090b0e] border-t border-white/10">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-black text-white uppercase tracking-tight">
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="space-y-3">
+          <div class="border border-white/10 rounded-xl bg-[#12151d] overflow-hidden">
+            <button onclick="toggleFaq(1)" class="w-full px-5 py-4 text-left flex justify-between items-center text-white font-bold text-sm">
+              <span>How do I receive the library after purchasing?</span>
+              <i id="faq-icon-1" data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform"></i>
+            </button>
+            <div id="faq-content-1" class="hidden px-5 pb-4 text-xs text-slate-400 border-t border-white/5 pt-3 leading-relaxed">
+              Immediately upon transaction completion (Apple Pay, Google Pay, or Credit/Debit card), an instant download link to the ZIP bundle is presented on screen and simultaneously sent to your specified email.
+            </div>
+          </div>
+
+          <div class="border border-white/10 rounded-xl bg-[#12151d] overflow-hidden">
+            <button onclick="toggleFaq(2)" class="w-full px-5 py-4 text-left flex justify-between items-center text-white font-bold text-sm">
+              <span>Can I import these details into ArchiCAD or other CAD tools?</span>
+              <i id="faq-icon-2" data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform"></i>
+            </button>
+            <div id="faq-content-2" class="hidden px-5 pb-4 text-xs text-slate-400 border-t border-white/5 pt-3 leading-relaxed">
+              Yes. The DWG files (standard AutoCAD format) import directly into ArchiCAD, Vectorworks, Rhino, and BricsCAD either as linked external drawings or exploded 2D vector linework with preserved scale and dimensions.
+            </div>
+          </div>
+
+          <div class="border border-white/10 rounded-xl bg-[#12151d] overflow-hidden">
+            <button onclick="toggleFaq(3)" class="w-full px-5 py-4 text-left flex justify-between items-center text-white font-bold text-sm">
+              <span>Are there any duplicate files from Version 1.0?</span>
+              <i id="faq-icon-3" data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform"></i>
+            </button>
+            <div id="faq-content-3" class="hidden px-5 pb-4 text-xs text-slate-400 border-t border-white/5 pt-3 leading-relaxed">
+              None. Version 2.0 was developed completely from scratch and contains only new, complex details (such as concealed radiator enclosures, EuroKraab, SLOTT profiles, Shower Deck recesses, flush-mounted mirrors, and Rimadesio partitions).
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Bottom Action CTA -->
+    <section class="py-20 bg-gradient-to-b from-[#111317] to-black border-t border-white/15 relative overflow-hidden text-center">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="inline-block px-4 py-1 rounded bg-brand-500 text-white text-xs font-black uppercase tracking-wider mb-6">
+          ZERO OVERLAP WITH V1.0 • 2026 EDITION
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight">
+          Supercharge Your CD Production Sets Today
+        </h2>
+
+        <p class="text-slate-400 text-sm max-w-xl mx-auto mt-4 leading-relaxed">
+          Prevent contractor disputes and costly site modifications. This battle-tested package of 76 production details saves dozens of drafting hours.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div class="bg-[#181b24] px-6 py-3 rounded-xl border border-brand-500/40 text-left">
+            <span class="text-[10px] uppercase font-bold text-slate-400 block">Promotional Price:</span>
+            <div class="flex items-baseline space-x-2">
+              <span class="text-4xl font-black text-brand-400 font-mono">$19</span>
+              <span class="text-slate-300 font-bold text-sm">USD</span>
+              <span class="text-xs text-slate-500 line-through ml-2">$29 USD</span>
+            </div>
+          </div>
+
+          <button onclick="openOrderModal()" class="w-full sm:w-auto px-10 py-5 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-black text-sm uppercase tracking-wider shadow-2xl shadow-brand-500/50 transform active:scale-95 transition-all flex items-center justify-center space-x-2">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span>Download All 76 Files ($19 USD)</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 bg-black border-t border-white/10 text-xs text-slate-500 text-center">
+    <div class="max-w-7xl mx-auto px-4">
+      © 2026 DETAILS & SECTIONS 2.0 • All Rights Reserved. Crafted for architectural and interior design professionals worldwide.
+    </div>
+  </footer>
+
+  <!-- Floating Mobile Sticky Buy Button -->
+  <div class="fixed bottom-0 inset-x-0 z-40 p-3 bg-[#0d0f12]/95 backdrop-blur-lg border-t border-white/15 md:hidden flex items-center justify-between gap-3 shadow-2xl">
+    <div class="flex flex-col">
+      <div class="flex items-baseline space-x-1.5">
+        <span class="text-lg font-black text-brand-400 font-mono leading-none">$19 USD</span>
+        <span class="text-[10px] text-slate-500 line-through font-mono">$29 USD</span>
+      </div>
+      <span class="text-[9px] text-emerald-400 uppercase font-bold tracking-wider">-35% Off Applied</span>
+    </div>
+    <button onclick="openOrderModal()" class="px-5 py-3 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-brand-500/40 flex items-center space-x-1.5 active:scale-95 transition-all shrink-0">
+      <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+      <span>Get 76 Details</span>
+    </button>
+  </div>
+
+  <!-- Lightbox Zoom Modal -->
+  <div id="imageZoomModal" class="fixed inset-0 z-50 hidden bg-black/95 backdrop-blur-md flex flex-col items-center justify-center p-4" onclick="closeImageZoom()">
+    <button onclick="closeImageZoom()" class="absolute top-5 right-5 text-white/70 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all z-20">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    <div class="max-w-5xl max-h-[85vh] w-full flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+      <img id="zoomedImage" src="" alt="Enlarged Architectural Drawing" class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl border border-white/15" />
+      <p id="zoomCaption" class="text-xs text-slate-300 font-mono mt-3 text-center uppercase tracking-wider"></p>
+    </div>
+  </div>
+
+  <!-- Order Modal with Trust Badges -->
+  <div id="orderModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-md bg-[#13161e] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl">
+      <button onclick="closeOrderModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-5">
+        <span class="text-[10px] font-mono font-bold text-brand-400 uppercase tracking-widest block">2026 EDITION V2.0</span>
+        <h3 class="text-xl font-black text-white uppercase mt-1">Complete Your Order</h3>
+        <p class="text-xs text-slate-400 mt-1">Enter your details to receive instant digital file access.</p>
+      </div>
+
+      <div class="bg-[#0b0c10] p-3.5 rounded-xl border border-brand-500/30 mb-4 flex justify-between items-center">
+        <div>
+          <div class="text-xs font-bold text-white uppercase">76+ Details & Sections</div>
+          <div class="text-[10px] text-brand-400">DWG + RVT 26 + PDF + Photos</div>
+        </div>
+        <div class="text-right font-mono">
+          <span class="text-[10px] text-slate-500 line-through block">$29 USD</span>
+          <span class="text-base font-black text-white">$19 USD</span>
+        </div>
+      </div>
+
+      <form id="orderForm" onsubmit="submitOrder(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Your Full Name</label>
+          <input type="text" id="custName" required placeholder="Alexander Wright" class="w-full px-3.5 py-2.5 rounded-lg bg-[#090a0d] border border-white/15 text-sm text-white focus:outline-none focus:border-brand-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-300 uppercase mb-1">Email for File Delivery</label>
+          <input type="email" id="custEmail" required placeholder="architect@domain.com" class="w-full px-3.5 py-2.5 rounded-lg bg-[#090a0d] border border-white/15 text-sm text-white focus:outline-none focus:border-brand-500" />
+        </div>
+
+        <!-- Trust Badges & Guarantee Block -->
+        <div class="p-3 rounded-xl bg-[#090a0d]/90 border border-white/10 space-y-2 pt-2.5">
+          <div class="flex items-center space-x-2 text-[11px] text-slate-300">
+            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+            <span>Encrypted 256-bit Secure Checkout</span>
+          </div>
+          <div class="flex items-center space-x-2 text-[11px] text-slate-300">
+            <i data-lucide="zap" class="w-4 h-4 text-brand-400 shrink-0"></i>
+            <span>Instant digital download delivered to email</span>
+          </div>
+          <div class="pt-1 flex items-center justify-between text-[10px] font-mono text-slate-400 border-t border-white/5">
+            <span class="bg-white/5 px-2 py-0.5 rounded">Apple Pay</span>
+            <span class="bg-white/5 px-2 py-0.5 rounded">Google Pay</span>
+            <span class="bg-white/5 px-2 py-0.5 rounded">Visa / MC</span>
+            <span class="bg-white/5 px-2 py-0.5 rounded">AMEX</span>
+          </div>
+        </div>
+
+        <button type="submit" id="submitBtn" class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-brand-500/30 transition-all mt-2 flex items-center justify-center space-x-2">
+          <span>Proceed to Payment ($19 USD)</span>
+        </button>
+      </form>
+
+      <!-- Screen: Redirecting -->
+      <div id="orderSuccess" class="hidden text-center py-6">
+        <div class="w-12 h-12 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center mx-auto mb-3">
+          <i data-lucide="loader" class="w-6 h-6 animate-spin"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white uppercase">Redirecting...</h4>
+        <p class="text-xs text-slate-400 mt-2">Connecting to our secure checkout gateway...</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const TG_BOT_TOKEN = "8706710083:AAFeYiB95s9IJiffjCwb1ut4jGy2mhxJc5A";
+    const TG_CHAT_ID = "526198504";
+    const WAYFORPAY_URL = "https://secure.wayforpay.com/button/ba2408f1f0f24";
+
+    function initUrgencyTimer() {
+      function updateTimer() {
+        const now = new Date();
+        const nextSunday = new Date();
+        const dayOfWeek = now.getDay();
+        const distanceToSunday = (7 - dayOfWeek) % 7;
+        
+        nextSunday.setDate(now.getDate() + distanceToSunday);
+        nextSunday.setHours(23, 59, 59, 999);
+
+        const diff = nextSunday.getTime() - now.getTime();
+        
+        if (diff <= 0) {
+          document.getElementById('timer-hours').innerText = '00';
+          document.getElementById('timer-minutes').innerText = '00';
+          document.getElementById('timer-seconds').innerText = '00';
+          return;
+        }
+
+        const totalHours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('timer-hours').innerText = String(totalHours).padStart(2, '0');
+        document.getElementById('timer-minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('timer-seconds').innerText = String(seconds).padStart(2, '0');
+      }
+
+      updateTimer();
+      setInterval(updateTimer, 1000);
+    }
+
+    const nodes = [
+      { id: 1, cat: "floor", desc: "Vertical section: Porcelain stoneware floor junction with shadow gap profile (Type 1) recessed into plastered CMU/block wall" },
+      { id: 2, cat: "floor", desc: "Vertical section: Hardwood/laminate floor junction with shadow gap profile (Type 1) recessed into plastered masonry wall" },
+      { id: 3, cat: "floor", desc: "Vertical section: Porcelain tile floor junction with shadow gap reveal baseboard (Type 1) built into drywall partition" },
+      { id: 4, cat: "floor", desc: "Vertical section: Engineered wood flooring junction with shadow gap baseboard (Type 1) integrated into drywall stud partition" },
+      { id: 5, cat: "floor", desc: "Vertical section: Parquet/laminate flooring interface with shadow gap reveal (Type 2) recessed into plastered block wall" },
+      { id: 6, cat: "floor", desc: "Vertical section: Porcelain slab or wall panel floor junction through shadow reveal channel (Type 2)" },
+      { id: 7, cat: "floor", desc: "Vertical section: Shadow gap profile junction with flush built-in wardrobe (frameless base toe-kick detail)" },
+      
+      { id: 8, cat: "ceiling", desc: "Vertical section: Plastered wall detachment from drywall ceiling using shadow gap profile with indirect LED cove" },
+      { id: 9, cat: "ceiling", desc: "Vertical section: Plastered wall-to-gypsum ceiling shadow reveal junction with integrated LED lighting strip" },
+      { id: 10, cat: "ceiling", desc: "Vertical section: Drywall partition detachment from concrete/plastered ceiling through illuminated shadow channel" },
+      { id: 11, cat: "ceiling", desc: "Vertical section: Plastered masonry wall detachment from suspended drywall ceiling with perimeter LED glow" },
+      { id: 12, cat: "ceiling", desc: "Vertical section: Plastered ceiling junction to drywall wall clad in porcelain slab or architectural panel (Type 2 profile)" },
+      { id: 13, cat: "ceiling", desc: "Vertical section: Single-layer drywall ceiling perimeter junction to plastered wall using shadow reveal profile (Type 3)" },
+      { id: 14, cat: "ceiling", desc: "Vertical section: Single-layer drywall ceiling perimeter junction to plastered wall with illuminated shadow profile (Type 3)" },
+      { id: 15, cat: "ceiling", desc: "Vertical section: Double-layer drywall ceiling to porcelain-clad wall via illuminated shadow channel profile (Type 1)" },
+      { id: 16, cat: "ceiling", desc: "Vertical section: Double-layer drywall ceiling perimeter reveal with recessed LED illumination (Type 3)" },
+      { id: 17, cat: "ceiling", desc: "Vertical section: Single-layer drywall ceiling perimeter reveal with recessed LED channel profile (Type 4)" },
+      { id: 18, cat: "ceiling", desc: "Vertical section: Recessed shadow gap profile (Type 6) with LED lighting inside a flush perimeter pocket" },
+      { id: 19, cat: "ceiling", desc: "Vertical section: Illuminated shadow gap profile (Type 6) installation inside a recessed ceiling recess" },
+      { id: 20, cat: "ceiling", desc: "Vertical section: Flush-mounted shadow profile (Type 6) with LED illumination integrated into drywall ceiling field" },
+
+      { id: 21, cat: "bathroom", desc: "Vertical section: Porcelain stoneware recessed bathtub plinth / toe-kick without illumination" },
+      { id: 22, cat: "bathroom", desc: "Vertical section: Acrylic solid surface floating bathtub toe-kick with concealed perimeter LED illumination" },
+      { id: 23, cat: "bathroom", desc: "Vertical section: Custom-built tile shower curb with frameless glass partition channel" },
+      { id: 24, cat: "bathroom", desc: "Vertical section: Custom walk-in shower threshold with concealed glass panel u-channel" },
+      { id: 25, cat: "bathroom", desc: "Vertical section: Flush shower deck podium system finished with large-format porcelain stoneware" },
+      { id: 26, cat: "bathroom", desc: "Vertical section: Built-in shower deck system with porcelain cladding and perimeter drainage channel" },
+      { id: 27, cat: "bathroom", desc: "Vertical section: Shower deck podium with porcelain tile finish and hardwood floor transition joint" },
+      { id: 28, cat: "bathroom", desc: "Vertical section: Concealed tile shower tray interface transitioning to dry engineered hardwood flooring" },
+      { id: 29, cat: "bathroom", desc: "Vertical section: Walk-in shower enclosure with Shower Deck System: frameless glass support profile mounting" },
+      { id: 30, cat: "bathroom", desc: "Vertical section: Porcelain tile flush transition to painted drywall via architectural metal trim" },
+      { id: 31, cat: "bathroom", desc: "Vertical section: Radiant in-wall electric heating assembly concealed behind drywall substrate" },
+      { id: 32, cat: "bathroom", desc: "Horizontal section: MDF veneer wall panel mounting over concealed toilet cistern flush with tile" },
+
+      { id: 33, cat: "cornice", desc: "Vertical section: KRAAB SYSTEMS SLIM ROAD 01 curtain track profile in stretch ceiling at window opening" },
+      { id: 34, cat: "cornice", desc: "Vertical section: KRAAB SYSTEMS SLOTT PARSEK recessed track profile integrated into stretch ceiling at window head" },
+      { id: 35, cat: "cornice", desc: "Vertical section: KRAAB SYSTEMS SLIM ROAD 02 concealed curtain profile in stretch ceiling at window return" },
+      { id: 36, cat: "cornice", desc: "Vertical section: KRAAB SYSTEMS SLOTT MOTION motorized curtain track integrated into stretch ceiling" },
+      { id: 37, cat: "cornice", desc: "Vertical section: KRAAB SYSTEMS SLOTT MOTION motorized curtain track integrated into gypsum drywall ceiling" },
+      { id: 38, cat: "cornice", desc: "Vertical section: KRAAB SYSTEMS SLOTT R architectural separation profile integrated into stretch ceiling" },
+      { id: 39, cat: "cornice", desc: "Vertical section: KRAAB SYSTEMS SLIM R recessed separator profile in stretch ceiling" },
+
+      { id: 40, cat: "doors", desc: "Vertical section: Rimadesio single-panel glazed sliding partition ceiling head track assembly" },
+      { id: 41, cat: "doors", desc: "Vertical section: Rimadesio dual-panel glazed sliding partition ceiling track recessed assembly" },
+      { id: 42, cat: "doors", desc: "Vertical section: Fantom Doorstop fully concealed flush magnetic floor stop installation detail" },
+      { id: 43, cat: "doors", desc: "Vertical section: Boca Stripe single glazed partition recessed ceiling mounting track" },
+      { id: 44, cat: "doors", desc: "Vertical section: Boca Stripe dual glazed partition recessed ceiling mounting track" },
+
+      { id: 45, cat: "lighting", desc: "Vertical section: Recessed low-voltage magnetic track light installation in gypsum drywall ceiling" },
+      { id: 46, cat: "lighting", desc: "Vertical section: Recessed magnetic track channel in drywall ceiling with Type 1 shadow gap reveal" },
+      { id: 47, cat: "lighting", desc: "Vertical section: Single-layer drywall ceiling track lighting mounting with edge shadow profile" },
+      { id: 48, cat: "floor", desc: "Vertical section: Continuous perimeter baseboard loop created via aerated block baseboard beneath millwork" },
+
+      { id: 49, cat: "furniture", desc: "Horizontal section: Backlit porcelain stoneware decorative TV accent wall panel installation" },
+      { id: 50, cat: "furniture", desc: "Vertical section: Recessed AV and power outlet box cavity within masonry wall for zero-gap TV bracket" },
+      { id: 51, cat: "furniture", desc: "Horizontal section: Recessed AV media cavity within drywall partition for ultra-flush TV wall mounting" },
+      { id: 52, cat: "furniture", desc: "Vertical section: Concealed TV mounting niche recessed into custom architectural millwork cabinet" },
+      { id: 53, cat: "furniture", desc: "Vertical section: Suspended feature TV panel wall assembly with perimeter halo LED illumination" },
+      { id: 54, cat: "furniture", desc: "Vertical section: Recessed TV drywall cavity for flush in-wall display integration" },
+      { id: 55, cat: "furniture", desc: "Vertical section: Stretch ceiling to cabinet filler strip junction via EuroKraab shadow profile" },
+      { id: 56, cat: "furniture", desc: "Vertical section: Stretch ceiling to millwork interface through drywall bulkhead with EuroKraab profile" },
+      { id: 57, cat: "furniture", desc: "Vertical section: Drywall ceiling to wardrobe interface via drywall bulkhead and Type 2 shadow reveal" },
+
+      { id: 58, cat: "mirrors", desc: "Horizontal section: Full-height frameless mirror mounted completely flush with adjacent wall surface" },
+      { id: 59, cat: "mirrors", desc: "Vertical section: Frameless mirror mounted flush with surrounding plastered wall finish" },
+      { id: 60, cat: "mirrors", desc: "Horizontal section: Flush mirror-to-drywall junction (Alternative mounting method 2)" },
+      { id: 61, cat: "mirrors", desc: "Vertical section: Floating frameless mirror on plywood backing substrate with perimeter LED backlight" },
+      { id: 62, cat: "mirrors", desc: "Vertical section: Backlit floating mirror mounted over large-format porcelain tile wall finish" },
+      { id: 63, cat: "mirrors", desc: "Horizontal section: Flush mirror assembly integrated with micro LED profile channel" },
+      { id: 64, cat: "mirrors", desc: "Horizontal section: Mirror junction to Orac Decor W109 VALLEY 3D wall paneling via LED profile" },
+      { id: 65, cat: "mirrors", desc: "Horizontal section: Architectural perimeter light channel detail installed adjacent to mirror" },
+      { id: 66, cat: "mirrors", desc: "Vertical section: Floating metal floating shelf structural anchor concealed behind porcelain tile" },
+      { id: 67, cat: "mirrors", desc: "Horizontal section: Concealed steel cantilever shelf anchor mounted behind porcelain wall slab" },
+
+      { id: 68, cat: "curtains", desc: "Vertical section: Recessed drapery pocket at window head with concealed LED cove illumination" },
+      { id: 69, cat: "curtains", desc: "Vertical section: Recessed drapery pocket with integrated LED cove (Alternative construction method)" },
+      { id: 70, cat: "curtains", desc: "Vertical section: Concealed roller blind and venetian shade pocket at window head" },
+      { id: 71, cat: "curtains", desc: "Vertical section: Type 6 illuminated shadow reveal profile installed in drapery pocket return" },
+      { id: 72, cat: "lighting", desc: "Vertical section: Timber slatted ceiling track light mounting with cornice transition step" },
+      { id: 73, cat: "curtains", desc: "Vertical section: Drapery pocket framing and substrate assembly for classic ceiling molding mounting" },
+      { id: 74, cat: "curtains", desc: "Vertical section: Multi-tier drywall ceiling drop with recessed curtain pocket and molding frame" },
+
+      { id: 75, cat: "heating", desc: "Vertical section: Concealed in-wall hydronic radiator stub-out pipe connections" },
+      { id: 76, cat: "heating", desc: "Vertical section: Concealed radiator pipe routing with integrated custom radiator enclosure millwork" }
+    ];
+
+    let selectedCat = 'all';
+
+    function renderList(items) {
+      const container = document.getElementById('nodesList');
+      const badge = document.getElementById('nodesCountBadge');
+      if (!container) return;
+
+      badge.innerText = items.length;
+
+      if (items.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-10 bg-[#12151d] rounded-xl border border-dashed border-white/10">
+            <p class="text-slate-400 text-xs">No architectural details match your search query.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = items.map(n => `
+        <div class="px-4 py-3 bg-[#12151d] hover:bg-[#181d28] border border-white/5 hover:border-white/15 rounded-xl flex items-center gap-3.5 transition-colors">
+          <span class="px-2.5 py-1 rounded bg-[#090a0d] border border-brand-500/40 text-brand-400 font-mono text-xs font-bold shrink-0">
+            #${n.id}
+          </span>
+          <span class="text-xs sm:text-sm text-slate-200 font-medium leading-snug">
+            ${n.desc}
+          </span>
+        </div>
+      `).join('');
+    }
+
+    function filterNodes() {
+      const q = document.getElementById('nodeSearchInput').value.toLowerCase().trim();
+      const filtered = nodes.filter(n => {
+        const matchesCategory = selectedCat === 'all' || n.cat === selectedCat;
+        const matchesText = !q || n.desc.toLowerCase().includes(q) || n.id.toString() === q;
+        return matchesCategory && matchesText;
+      });
+      renderList(filtered);
+    }
+
+    function setCategory(cat) {
+      selectedCat = cat;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-cat') === cat) {
+          btn.className = "filter-btn px-3.5 py-1.5 rounded-lg bg-brand-500 text-white whitespace-nowrap shadow-md";
+        } else {
+          btn.className = "filter-btn px-3.5 py-1.5 rounded-lg bg-[#0a0c10] text-slate-300 border border-white/10 hover:border-brand-500/50 whitespace-nowrap";
+        }
+      });
+      filterNodes();
+    }
+
+    function resetFilters() {
+      document.getElementById('nodeSearchInput').value = '';
+      setCategory('all');
+    }
+
+    function toggleCardView(id, view) {
+      const cadView = document.getElementById(`view-${id}-cad`);
+      const photoView = document.getElementById(`view-${id}-photo`);
+      const btnCad = document.getElementById(`btn-${id}-cad`);
+      const btnPhoto = document.getElementById(`btn-${id}-photo`);
+
+      if (view === 'cad') {
+        cadView.classList.remove('hidden');
+        photoView.classList.add('hidden');
+        btnCad.className = "px-2 py-0.5 rounded bg-brand-500 text-white transition-all";
+        btnPhoto.className = "px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all";
+      } else {
+        cadView.classList.add('hidden');
+        photoView.classList.remove('hidden');
+        btnPhoto.className = "px-2 py-0.5 rounded bg-brand-500 text-white transition-all";
+        btnCad.className = "px-2 py-0.5 rounded text-slate-400 hover:text-white transition-all";
+      }
+    }
+
+    function openImageZoom(src, caption) {
+      const modal = document.getElementById('imageZoomModal');
+      const img = document.getElementById('zoomedImage');
+      const cap = document.getElementById('zoomCaption');
+      img.src = src;
+      cap.innerText = caption || '';
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      lucide.createIcons();
+    }
+
+    function openImageZoomWithFallback(basePath, caption) {
+      const testImg = new Image();
+      testImg.onload = function() {
+        openImageZoom(basePath + '.jpg', caption);
+      };
+      testImg.onerror = function() {
+        openImageZoom(basePath + '.png', caption);
+      };
+      testImg.src = basePath + '.jpg';
+    }
+
+    function closeImageZoom() {
+      document.getElementById('imageZoomModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function toggleFaq(num) {
+      const content = document.getElementById(`faq-content-${num}`);
+      const icon = document.getElementById(`faq-icon-${num}`);
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    }
+
+    function openOrderModal() {
+      document.getElementById('orderModal').classList.remove('hidden');
+      document.getElementById('orderForm').classList.remove('hidden');
+      document.getElementById('orderSuccess').classList.add('hidden');
+      document.body.classList.add('overflow-hidden');
+      const submitBtn = document.getElementById('submitBtn');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Proceed to Payment ($19 USD)</span>`;
+      }
+      lucide.createIcons();
+    }
+    
+    function closeOrderModal() {
+      document.getElementById('orderModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    async function submitOrder(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span class="inline-flex items-center gap-2"><i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Processing checkout...</span>`;
+        lucide.createIcons();
+      }
+
+      const name = document.getElementById('custName').value.trim();
+      const email = document.getElementById('custEmail').value.trim();
+
+      const message = `🌍 *[EN Order] Details & Sections 2.0*\n\n` +
+                      `👤 *Name:* ${name}\n` +
+                      `✉️ *Email:* ${email}\n` +
+                      `💰 *Amount:* $19 USD\n` +
+                      `🕒 *Time:* ${new Date().toUTCString()}`;
+
+      try {
+        await fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TG_CHAT_ID,
+            text: message,
+            parse_mode: 'Markdown'
+          })
+        });
+      } catch (err) {
+        console.error("Telegram notification error:", err);
+      }
+
+      document.getElementById('orderForm').classList.add('hidden');
+      document.getElementById('orderSuccess').classList.remove('hidden');
+      lucide.createIcons();
+
+      setTimeout(() => {
+        window.location.href = WAYFORPAY_URL;
+      }, 700);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeImageZoom();
+        closeOrderModal();
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderList(nodes);
+      initUrgencyTimer();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

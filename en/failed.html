@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Оплату не завершено — Вузли та розрізи 2.0</title>
+  
+  <!-- Google Fonts, Tailwind CSS & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              400: '#e59539',
+              500: '#d9822b',
+              600: '#c26e1c'
+            }
+          },
+          fontFamily: {
+            sans: ['"Montserrat"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-[#0b0c10] text-slate-200 font-sans min-h-screen flex flex-col justify-between selection:bg-brand-500 selection:text-white"
+      style="background-image: radial-gradient(circle at 50% 15%, rgba(239, 68, 68, 0.1) 0%, transparent 60%), linear-gradient(to bottom, #0d0f14, #08090c);">
+
+  <!-- Header -->
+  <header class="py-6 border-b border-white/10">
+    <div class="max-w-4xl mx-auto px-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-2.5">
+        <span class="px-2 py-0.5 rounded bg-brand-500 text-white font-mono font-black text-xs">2.0</span>
+        <span class="font-extrabold text-sm text-white tracking-wider uppercase">ВУЗЛИ ТА РОЗРІЗИ</span>
+      </a>
+      <span class="text-xs font-mono text-red-400 bg-red-500/10 border border-red-500/20 px-2.5 py-1 rounded-full">
+        Помилка транзакції
+      </span>
+    </div>
+  </header>
+
+  <!-- Main Card -->
+  <main class="flex-grow flex items-center justify-center p-4 my-8">
+    <div class="w-full max-w-xl bg-[#13161e] border border-red-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden text-center">
+      
+      <!-- Top Glow -->
+      <div class="absolute -top-24 left-1/2 -translate-x-1/2 w-48 h-48 bg-red-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Icon -->
+      <div class="w-16 h-16 rounded-2xl bg-red-500/15 border border-red-500/40 text-red-400 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-red-500/10">
+        <i data-lucide="alert-circle" class="w-9 h-9"></i>
+      </div>
+
+      <span class="text-[11px] font-mono font-bold text-red-400 uppercase tracking-widest block mb-1">ОПЛАТУ НЕ БУЛО ПРОВЕДЕНО</span>
+      <h1 class="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
+        Щось пішло не так
+      </h1>
+      <p class="text-xs sm:text-sm text-slate-400 mt-2 max-w-md mx-auto leading-relaxed">
+        Транзакцію було скасовано банком або перервано. Кошти з вашого рахунку списано не було.
+      </p>
+
+      <!-- Possible Reasons -->
+      <div class="my-6 p-4 rounded-2xl bg-[#0a0c10] border border-white/10 text-left space-y-2 text-xs text-slate-300">
+        <span class="text-slate-400 font-mono text-[11px] uppercase block font-bold">Можливі причини:</span>
+        <div class="flex items-start space-x-2">
+          <i data-lucide="x" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>
+          <span>Недостатньо коштів на картці або встановлено ліміт на інтернет-оплати.</span>
+        </div>
+        <div class="flex items-start space-x-2">
+          <i data-lucide="x" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>
+          <span>Не підтверджено транзакцію в додатку вашого банку (Monobank / Приват24).</span>
+        </div>
+        <div class="flex items-start space-x-2">
+          <i data-lucide="x" class="w-4 h-4 text-red-400 shrink-0 mt-0.5"></i>
+          <span>Таймаут сесії або випадкове закриття платіжної вкладки.</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row gap-3 mb-6">
+        <a 
+          href="https://secure.wayforpay.com/button/ba2408f1f0f24" 
+          class="flex-1 py-3.5 px-5 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-brand-500/30 transition-all flex items-center justify-center space-x-2"
+        >
+          <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+          <span>Спробувати ще раз</span>
+        </a>
+        <a 
+          href="index.html" 
+          class="py-3.5 px-5 rounded-xl bg-[#1a1e28] hover:bg-[#222735] text-slate-300 hover:text-white font-bold text-xs uppercase tracking-wider border border-white/10 transition-all flex items-center justify-center"
+        >
+          <span>На головну</span>
+        </a>
+      </div>
+
+      <!-- Direct Contact -->
+      <div class="pt-5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <span class="text-slate-400">Складнощі з оплатою карткою?</span>
+        <a href="https://t.me/Pavel_bondar_bo" target="_blank" class="text-brand-400 hover:text-white transition-colors flex items-center gap-1 font-bold">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          <span>Отримати прямі реквізити в Telegram</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-6 border-t border-white/10 text-center text-xs text-slate-600">
+    © 2026 ВУЗЛИ ТА РОЗРІЗИ 2.0 • Всі права захищено.
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
