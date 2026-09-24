@@ -716,7 +716,7 @@
             <p class="text-xs text-slate-400 mt-1">Optimized for high-resolution review on iPad, tablet, or smartphone during job-site supervision.</p>
           </div>
 
-          <div class="bg-[#12151d] p-6 rounded-xl border border-white/10 text-center">
+          <div class="bg-[#12151d] p-6 rounded-xl border border-emerald-500/40 text-center">
             <div class="w-12 h-12 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 font-mono font-bold flex items-center justify-center mx-auto mb-4">
               IMG
             </div>
@@ -876,7 +876,7 @@
           <input type="email" id="custEmail" required placeholder="architect@domain.com" class="w-full px-3.5 py-2.5 rounded-lg bg-[#090a0d] border border-white/15 text-sm text-white focus:outline-none focus:border-brand-500" />
         </div>
 
-        <!-- Trust Badges & Guarantee Block -->
+        <!-- Trust Badges Block -->
         <div class="p-3 rounded-xl bg-[#090a0d]/90 border border-white/10 space-y-2 pt-2.5">
           <div class="flex items-center space-x-2 text-[11px] text-slate-300">
             <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
@@ -899,8 +899,12 @@
           <span class="h-px bg-white/10 flex-1"></span>
         </div>
 
-        <!-- PayPal Hosted Container -->
-        <div id="paypal-container-6VFB372XE2ZSY"></div>
+        <!-- PayPal Hosted Container with fallback -->
+        <div id="paypal-container-6VFB372XE2ZSY" class="min-h-[45px] flex items-center justify-center">
+          <button type="button" onclick="payWithPayPalDirect()" class="w-full py-3 px-4 rounded-xl bg-[#ffc439] hover:bg-[#f4bb34] text-[#003087] font-bold text-xs uppercase tracking-wider shadow-md transition-all flex items-center justify-center space-x-2">
+            <span>Pay with PayPal</span>
+          </button>
+        </div>
       </form>
 
       <!-- Screen: Redirecting -->
@@ -1154,6 +1158,40 @@
       }
     }
 
+    let paypalRendered = false;
+    function renderPayPalHostedButton() {
+      if (paypalRendered) return;
+      if (window.paypal && paypal.HostedButtons) {
+        const container = document.getElementById("paypal-container-6VFB372XE2ZSY");
+        if (container) {
+          container.innerHTML = "";
+          paypal.HostedButtons({
+            hostedButtonId: "6VFB372XE2ZSY",
+            onApprove: function(data, actions) {
+              const name = document.getElementById('custName')?.value || 'Customer';
+              const email = document.getElementById('custEmail')?.value || 'N/A';
+              
+              fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  chat_id: TG_CHAT_ID,
+                  text: `✅ *[EN PAID via PayPal]* $19 USD\n👤 Name: ${name}\n✉️ Email: ${email}`,
+                  parse_mode: 'Markdown'
+                })
+              });
+
+              window.location.href = "https://details.imaginate.com.ua/en/success.html";
+            }
+          }).render("#paypal-container-6VFB372XE2ZSY").then(() => {
+            paypalRendered = true;
+          }).catch(err => {
+            console.error("PayPal render error:", err);
+          });
+        }
+      }
+    }
+
     function openOrderModal() {
       document.getElementById('orderModal').classList.remove('hidden');
       document.getElementById('orderForm').classList.remove('hidden');
@@ -1165,6 +1203,7 @@
         submitBtn.innerHTML = `<span>Pay with Card / Apple Pay ($19 USD)</span>`;
       }
       lucide.createIcons();
+      setTimeout(renderPayPalHostedButton, 100);
     }
     
     function closeOrderModal() {
@@ -1214,32 +1253,23 @@
       }, 700);
     }
 
-    // PayPal Buttons Integration
-    function initPayPalButton() {
-      if (window.paypal && paypal.HostedButtons) {
-        const container = document.getElementById("paypal-container-6VFB372XE2ZSY");
-        if (container && !container.hasChildNodes()) {
-          paypal.HostedButtons({
-            hostedButtonId: "6VFB372XE2ZSY",
-            onApprove: function(data, actions) {
-              const name = document.getElementById('custName')?.value || 'Customer';
-              const email = document.getElementById('custEmail')?.value || 'N/A';
-              
-              fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  chat_id: TG_CHAT_ID,
-                  text: `✅ *[EN PAID via PayPal]* $19 USD\n👤 Name: ${name}\n✉️ Email: ${email}`,
-                  parse_mode: 'Markdown'
-                })
-              });
+    async function payWithPayPalDirect() {
+      const name = document.getElementById('custName').value.trim() || 'Guest';
+      const email = document.getElementById('custEmail').value.trim() || 'N/A';
 
-              window.location.href = "https://details.imaginate.com.ua/en/success.html";
-            }
-          }).render("#paypal-container-6VFB372XE2ZSY");
-        }
-      }
+      try {
+        await fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TG_CHAT_ID,
+            text: `🌍 *[EN Clicked PayPal Button]*\n👤 Name: ${name}\n✉️ Email: ${email}\n💰 $19 USD`,
+            parse_mode: 'Markdown'
+          })
+        });
+      } catch (e) {}
+
+      window.location.href = "https://www.paypal.com/ncp/payment/6VFB372XE2ZSY";
     }
 
     window.addEventListener('keydown', (e) => {
@@ -1253,7 +1283,6 @@
       renderList(nodes);
       initUrgencyTimer();
       lucide.createIcons();
-      initPayPalButton();
     });
   </script>
 </body>
